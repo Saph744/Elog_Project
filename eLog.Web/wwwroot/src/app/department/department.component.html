@@ -1,0 +1,128 @@
+<nav class="navbar" style="background-color: #e3f2fd; height:80px;">
+    <ul class="nav">
+        <li class="nav-item active">
+            <a class="nav-link" href="#">DashBoard <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Department</a>
+        </li>
+    </ul>
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+</nav>
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-sm-12">
+                <div class="card">
+                    <div col-md="8">
+                        <div class="card-header card-header-primary">
+                            <h4 class="card-title">Department List</h4>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                            </div>
+                            <div class="col-md-2">
+                                <div class="input-group no-border">
+                                    <input type="text" value="" name="departmentName" [(ngModel)]="departmentName" class="form-control" placeholder="Search..." (ngModelChange)="Search()">
+                                    <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                        <i class="material-icons">search</i>
+                                        <div class="ripple-container"></div>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Vertically centered modal -->
+                            <div class="d-flex" style="margin-left:600px;">
+                                <button type="submit" class="btn btn-danger btn-round" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i class="fa fa-plus"></i>
+                                    ADD DEPARTMENT
+                                </button>
+                            </div>
+
+
+                            <!--Modal for Add Department-->
+                            <form #form="ngForm" (ngSubmit)="InsertDepartment()">
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header" style="background-color:#009688 !important;color:white;">
+                                                <h5 class="modal-title" id="exampleModalLabel">Department Detail</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                                <div class="mb-3">
+                                                    <label for="txtName" class="form-label">Department Name</label>
+                                                    <input type="text" name="departmentName" [(ngModel)]="department.departmentName" class="form-control" id="txtName">
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeClick()">Close</button>
+                                                <button type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" [disabled]="!department.departmentName">ADD</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <!--for Update the Department Form-->
+                            <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header" style="background-color:#009688 !important;color:white;">
+                                            <h5 class="modal-title" id="exampleModalLabel">Edit Department</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <form updatedepartment="ngForm" (ngSubmit)="UpdateDepartment()">
+
+                                                <div class="mb-3">
+                                                    <label for="txtName" class="form-label">Department Name</label>
+                                                    <input type="text" name="departmentName" [(ngModel)]="depUpdate.departmentName" class="form-control" id="txtName">
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Update</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div role="separator" class="dropdown-divider"></div>
+                    <table class="table">
+                        <thead style="color:darkorange">
+                            <tr>
+                                <th (click)="sort('departmentName')">Department Name&nbsp;<i class="fa fa-sort"></i></th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let department of departMent | paginate: { itemsPerPage: 5, currentPage: p } | orderBy: key: reverse ">
+                                <td>{{department.departmentName}}</td>
+                                <td>
+                                    <a class="edit" id="edit" data-bs-toggle="modal" data-bs-target="#edit" (click)="editClick(department)" data-backdrop="static" data-keyboard="false"><i class="material-icons">edit</i></a>
+                                </td>
+                                <td>
+                                    <a class="delete" (click)="DeleteDepartment(department.departmentID)"><i class="material-icons" style="color:red;">delete</i></a>
+                                </td>
+
+                            </tr>
+                        </tbody>
+
+                    </table>
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </div>
+            </div>
+        </div>
+        </div>
+</div>

@@ -1,0 +1,176 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <button><a routerLink="/user" class="backward">\Back</a></button>
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">ADD Employee Details</h4>
+                        <p class="card-category">Complete this profile</p>
+                    </div>
+                    <div class="card-body">
+                        <form autocomplete="off" #form="ngForm" (ngSubmit)="InsertEmployee()">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="First Name" type="text" name="firstname" [(ngModel)]="viewEmployee.firstname" required />
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Middle Name" type="text" name="middleName" [(ngModel)]="viewEmployee.middleName">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Last Name" type="text" name="lastname" [(ngModel)]="viewEmployee.lastname" required />
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Email address" type="email" name="emailAddress" [(ngModel)]="viewEmployee.emailAddress" required />
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Mobile Number" type="text" name="contactNumber" [(ngModel)]="viewEmployee.contactNumber" required />
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-select matInput placeholder="Designation" type="text" name="designation" [(ngModel)]="viewEmployee.designation">
+                                            <mat-option value="Manager">Manager </mat-option>
+                                            <mat-option value="Admin">Admin </mat-option>
+                                            <mat-option value="HR">HR </mat-option>
+                                            <mat-option value="Developer">Developer </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Date Of Birth" type="date" name="dateOfBirth" [(ngModel)]="viewEmployee.dateOfBirth" required />
+
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-select matInput placeholder="Gender" name="gender" [(ngModel)]="viewEmployee.gender" required>
+                                            <mat-option value="Male">Male </mat-option>
+                                            <mat-option value="Female">Female </mat-option>
+                                            <mat-option value="Others">Others </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Address1" type="text" name="address1" [(ngModel)]="viewEmployee.address1" required />
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Address2" type="text" name="address2" [(ngModel)]="viewEmployee.address2" />
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-select matInput placeholder="Employee Type" type="text" name="employeeTypeID" [(ngModel)]="viewEmployee.employeeTypeID" required>
+                                            <mat-option *ngFor="let employee of viewEmployeeType" [value]="employee.employeeTypeID">{{employee.employeeTypes}} </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-select matInput placeholder="Employee Manager" type="text" name="employeeManager" [(ngModel)]="viewEmployee.employeeManager">
+                                            <mat-option value="Manager">Manager </mat-option>
+                                            <mat-option value="Lead">Lead </mat-option>
+                                            <mat-option value="Administration">Administration </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-select matInput placeholder="State" type="text" name="companyID" [(ngModel)]="viewEmployee.companyID">
+                                            <mat-option *ngFor="let company of viewCompany" [value]="company.companyID">{{company.state}} </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-select matInput placeholder="CountryCode" type="text" name="companyID" [(ngModel)]="viewEmployee.companyID">
+                                            <mat-option *ngFor="let company of viewCompany" [value]="company.companyID">{{company.countryCode}} </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-select matInput placeholder="Country" type="text" name="companyID" [(ngModel)]="viewEmployee.companyID">
+                                            <mat-option *ngFor="let company of viewCompany" [value]="company.companyID">{{company.country}} </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-select matInput placeholder="Location" type="text" name="location" [(ngModel)]="viewEmployee.locationID">
+                                            <mat-option *ngFor="let location of viewLocation" [value]="location.locationID">{{location.locationName}} </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-select matInput placeholder="DepartmentName" name="departmentID"  [(ngModel)]="viewEmployee.departmentID">
+                                            <mat-option *ngFor="let department of viewDepartment" [value]="department.departmentID">{{department.departmentName}} </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-select matInput placeholder="Employee Status" type="text" name="employeeStatus" [(ngModel)]="viewEmployee.employeeStatus">
+                                            <mat-option value="Employed">Employed </mat-option>
+                                            <mat-option value="Resigned">Resigned</mat-option>
+                                            <mat-option value="Terminated">Terminated </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-select matInput placeholder="Leave Policy" name="leavePolicyID" [(ngModel)]="viewEmployee.leavePolicyID" required>
+                                            <mat-option *ngFor="let leavepolicy of viewLeavePolicy" [value]="leavepolicy.leavePolicyID">{{leavepolicy.description}} </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Working Day Time" type="text" name="workingDayType" [(ngModel)]="viewEmployee.workingDayType" />
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Leave ApprovedBy" type="text" name="leaveApprovedBy" [(ngModel)]="viewEmployee.leaveApprovedBy" />
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Join Date" type="date" name="joinedDate" [(ngModel)]="viewEmployee.joinedDate" required />
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div>
+                                <button type="submit" class="btn">Create</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

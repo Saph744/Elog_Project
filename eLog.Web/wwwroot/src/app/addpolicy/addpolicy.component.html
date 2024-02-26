@@ -1,0 +1,153 @@
+<nav class="navbar" style="background-color: #e3f2fd; height:80px;">
+    <ul class="nav">
+        <li class="nav-item active">
+            <a class="nav-link nav-link active" href="#/policysetting">TIME OFF POLICY  > </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/addpolicy">ADD TIME OFF POLICY<span class="sr-only">(current)</span></a>
+        </li>
+    </ul>
+</nav>
+
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Add Time Off Policy Settings</h4>
+                    </div>
+                    <div class="card-body">
+                        <form #form="ngForm" (ngSubmit)="InsertPolicy()">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Policy Name" type="text" name="description"
+                                               id="desc" [(ngModel)]="leavePolicy.description" #description="ngModel">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Associated Working Day Type</mat-label>
+                                        <select matNativeControl required>
+                                            <option>Standard</option>
+                                        </select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Hours Per Day" value="8" type="text" readonly="readonly">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <button mat-raised-button type="button" class="btn btn-danger pull-right" routerLink="/policysetting">Cancel</button>
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right">Add</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card form-inline">
+                    <div class="card-body">
+                        <div class="custom-datatable">
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right" data-toggle="modal" data-target="#addPolicy"><i class="fa fa-plus"></i> Add Time Off Types</button>
+                            <table class="table" *ngIf="leavetype && leavetype.length>0">
+                                <thead class="text-warning">
+                                    <tr>
+                                        <th>Enabled</th>
+                                        <th>Time Off Type</th>
+                                        <th>Effective Date</th>
+                                        <th>InitialSet To Days</th>
+                                        <th>EarnDays</th>
+                                        <th>Earn Period</th>
+                                        <th>ResetAt</th>
+                                        <th>Reset Days</th>
+                                        <th>Maximum Available Days</th>
+                                        <th>Disallow Negative Balance</th>
+                                        <th>Enable Sandwich</th>
+                                        <th>Sandwich Count</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let LeaveType of leavetype">
+                                        <td> <input type="checkbox" /></td>
+                                        <td>{{LeaveType.description}}</td>
+                                        <td><mat-form-field><input matInput placeholder="" type="date"></mat-form-field></td>
+                                        <td><mat-form-field><input matInput placeholder="" type="text"></mat-form-field></td>
+                                        <td><mat-form-field><input matInput placeholder="" type="text"></mat-form-field></td>
+                                        <td>
+                                            <mat-form-field>
+                                                <select matNativeControl>
+                                                    <option>Never</option>
+                                                    <option>Each Month</option>
+                                                    <option>Each Month on Effective Date</option>
+                                                    <option>Each Month Joining Date</option>
+                                                    <option>Each Month Assigned Date</option>
+                                                    <option>Each Year</option>
+                                                    <option>Each Year Assigned Date</option>
+                                                    <option>Each Year Joining Date</option>
+                                                    <option>Each Year on Effective Date</option>
+                                                </select>
+                                            </mat-form-field>
+                                        </td>
+                                        <td>
+                                            <mat-form-field>
+                                                <select matNativeControl>
+                                                    <option>Never</option>
+                                                    <option>Each Month</option>
+                                                    <option>Each Month on Effective Date</option>
+                                                    <option>Each Month Joining Date</option>
+                                                    <option>Each Month Assigned Date</option>
+                                                    <option>Each Year</option>
+                                                    <option>Each Year Assigned Date</option>
+                                                    <option>Each Year Joining Date</option>
+                                                    <option>Each Year on Effective Date</option>
+                                                </select>
+                                            </mat-form-field>
+                                        </td>
+                                        <td><mat-form-field><input matInput placeholder="" type="text"></mat-form-field></td>
+                                        <td><mat-form-field><input matInput placeholder="" type="text"></mat-form-field></td>
+                                        <td><input type="checkbox" /></td>
+                                        <td><input type="checkbox" /></td>
+                                        <td><mat-form-field><input matInput placeholder="" type="text"></mat-form-field></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addPolicy" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">ADD TIME OFF TYPE</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form #LeaveType="ngForm" (ngSubmit)="addLeaveType(LeaveType)">
+                    <div class="form-group">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Time Off Type" type="text"  #Description [(ngModel)]="leavetypetoInsert.description">
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-warn  pull-right" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary  pull-right">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

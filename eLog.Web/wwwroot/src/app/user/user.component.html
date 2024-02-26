@@ -1,0 +1,55 @@
+<nav class="navbar" style="background-color: #e3f2fd; height:80px;">
+
+    <ul class="nav">
+        <li class="nav-item active">
+            <a class="nav-link" href="#">DashBoard <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/addEmployee"><i class="fa fa-plus">AddEmployee</i></a>
+        </li>
+    </ul>
+</nav>
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-sm-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Employee</h4>
+                    </div>
+                    <div class="card-body table-responsive">
+                        <table class="table table-hover" *ngIf="employee && employee.length>0">
+                            <thead class="text-warning">
+                                <tr>
+                                    <th>Actions</th>
+                                    <th>Employee#</th>
+                                    <th>EmployeeName</th>
+                                    <th>Email Address</th>
+                                    <th>Designation</th>
+                                    <th>Address</th>
+                                    <th>Department Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let Employee of employee | paginate: {itemsPerPage: 3, currentPage: p}">
+                                    <td>
+                                        <a class="dropdown-item" [routerLink]="['/editEmployee',Employee.employeeID]"><i class="material-icons" style="color: #0288d1">&#xE254;</i></a>
+                                        <a class="dropdown-item" routerLink="/user" (click)="DeleteEmployee(Employee.contactID)"><i class="material-icons" style="color: #ff1a1a">&#xE872;</i></a>
+                                    </td>
+                                    <td>{{Employee.employeeID}}</td>
+                                    <td>{{Employee.firstname}} {{Employee.middleName}} {{Employee.lastname}}</td>
+                                    <td>{{Employee.emailAddress}}</td>
+                                    <td>{{Employee.designation}}</td>
+                                    <td>{{Employee.address1}}</td>
+                                    <td>{{Employee.departmentName}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                            <p *ngIf="!employee || employee.length <= 0">No data found</p>
+                        <pagination-controls (pageChange)="p = $event" style="margin-left:750px;"></pagination-controls>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

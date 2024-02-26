@@ -1,0 +1,121 @@
+
+<nav class="navbar" style="background-color: #e3f2fd; height:80px;">
+
+    <ul class="nav">
+        <li class="nav-item active">
+            <a class="nav-link" href="#">DashBoard <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Request</a>
+        </li>
+    </ul>
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+</nav>
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-sm-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Holiday Calendar</h4>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="col-md-2">
+                            <div class="input-group no-border">
+                                <input type="text" value="" name="calendarName" [(ngModel)]="calendarName" class="form-control" placeholder="Search..." (ngModelChange)="Search()">
+                                <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                    <i class="material-icons">search</i>
+                                    <div class="ripple-container"></div>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Vertically centered modal -->
+                        <div class="d-flex" style="margin-left:700px;">
+                            <button type="submit" class="btn btn-danger btn-round" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="addClick()" data-backdrop="static" data-keyboard="false">
+                                <i class="fa fa-plus"></i>
+                                ADD
+                            </button>
+                        </div>
+
+
+                        <!--Modal-->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="background-color:#009688 !important;color:white;">
+                                        <h5 class="modal-title" id="exampleModalLabel">{{ModelTitle}}</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeClick()"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <app-add-edit-holiday [hol]="hol" *ngIf="ActivateAddEditHolidayCom"></app-add-edit-holiday>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Edit Holiday Calendar-->
+                        <div class="modal fade" id="editType1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="background-color:#009688 !important;color:white;">
+                                        <h5 class="modal-title" id="exampleModalLabel">{{ModelTitle}}</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form updateholidayCalendar="ngForm" (ngSubmit)="UpdateHolidayCalendar()">
+                                            <div class="mb-3">
+                                                <label for="txtName" class="form-label">Calendar Name</label>
+                                                <input type="text" name="calendarName" [(ngModel)]="dataItemtoUpdate.calendarName" class="form-control" id="txtName" required>
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Update</button>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div role="separator" class="dropdown-divider"></div>
+                    <table class="table">
+                        <thead style="color:darkorange">
+                            <tr>
+                                <th (click)="sort('calendarName')">Holiday Calendar&nbsp;<i class="fa fa-sort" style="margin-left:30px;"></i></th>
+                                <th>Holiday</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let dataItem of holidaycalendar | orderBy: key: reverse | paginate: { itemsPerPage: 3, currentPage: p }">
+                                <td>{{dataItem.calendarName}}</td>
+                                <td>
+                                    <a id="holiday" routerLink="/holiday-list">Holidays</a>
+                                </td>
+                                <td>
+                                    <a class="edit" id="editType1" data-bs-toggle="modal" data-bs-target="#editType1" (click)="editClick(dataItem)" data-backdrop="static" data-keyboard="false"><i class="material-icons">edit</i></a>
+                                </td>
+                                <td>
+                                    <a class="delete" (click)="DeleteHolidayCalendar(dataItem.holidayCalendarID)"><i class="material-icons" style="color:red;">delete</i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+
+                </div>
+            </div>
+            </div>
+        </div>
+</div>
+
+

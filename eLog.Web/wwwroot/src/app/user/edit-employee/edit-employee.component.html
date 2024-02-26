@@ -1,0 +1,195 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Edit Employee Details</h4>
+                        <p class="card-category">Update this profile</p>
+                    </div>
+                    <div class="card-body">
+                        <form autocomplete="off" #form="ngForm" (ngSubmit)="UpdateEmployee()">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="First Name" type="text" name="firstname" [(ngModel)]="employeeDetails.firstname" required />
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Middle Name" type="text" name="middleName" [(ngModel)]="employeeDetails.middleName">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Last Name" type="text" name="lastname" [(ngModel)]="employeeDetails.lastname" required />
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Email address" type="email" name="emailAddress" [(ngModel)]="employeeDetails.emailAddress" required />
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Mobile Number" type="text" name="contactNumber" [(ngModel)]="employeeDetails.contactNumber" required />
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-select matInput placeholder="Designation" type="text" name="designation" [(ngModel)]="employeeDetails.designation">
+                                            <mat-option value="Manager">Manager </mat-option>
+                                            <mat-option value="Admin">Admin </mat-option>
+                                            <mat-option value="HR">HR </mat-option>
+                                            <mat-option value="Developer">Developer </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Date Of Birth" type="date" name="dateOfBirth" [(ngModel)]="employeeDetails.dateOfBirth" required />
+                                        <p>{{employeeDetails.dateOfBirth | date: 'dd-MM-yyyy'}}</p>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-select matInput placeholder="Gender" name="gender" [(ngModel)]="employeeDetails.gender" required>
+                                            <mat-option value="Male">Male </mat-option>
+                                            <mat-option value="Female">Female </mat-option>
+                                            <mat-option value="Others">Others </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Address1" type="text" name="address1" [(ngModel)]="employeeDetails.address1" required />
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Address2" type="text" name="address2" [(ngModel)]="employeeDetails.address2" />
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-select matInput placeholder="Employee Type" type="text" name="employeeTypeID" [(ngModel)]="employeeDetails.employeeTypeID" required>
+                                            <mat-option *ngFor="let employee of viewEmployeeType" [value]="employee.employeeTypeID">{{employee.employeeTypes}} </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-select matInput placeholder="Employee Manager" type="text" name="employeeManager" [(ngModel)]="employeeDetails.employeeManager">
+                                            <mat-option value="Manager">Manager </mat-option>
+                                            <mat-option value="Lead">Lead </mat-option>
+                                            <mat-option value="Administration">Administration </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                          <mat-select matInput placeholder="State" type="text" name="companyID" [(ngModel)]="employeeDetails.companyID" >
+                                         <mat-option *ngFor="let company of viewCompany" [value]="company.companyID">{{company.state}} </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Country Code" type="text" name="countryCode" [(ngModel)]="employeeDetails.countryCode" />
+                                        <!--  <mat-select matInput placeholder="CountryCode" type="text" name="companyID" [(ngModel)]="employeeDetails.companyID" >-->
+                                        <!-- <mat-option *ngFor="let company of viewCompany" [value]="company.companyID">{{company.countryCode}} </mat-option>-->
+                                        <!--</mat-select>-->
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                          <mat-select matInput placeholder="Country" type="text" name="companyID" [(ngModel)]="employeeDetails.companyID">
+                                         <mat-option *ngFor="let company of viewCompany" [value]="company.companyID">{{company.country}} </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-select matInput placeholder="Location" type="text" name="location" [(ngModel)]="employeeDetails.locationID">
+                                            <mat-option *ngFor="let location of viewLocation" [value]="location.locationID">{{location.locationName}} </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-select matInput placeholder="DepartmentName" name="departmentID" [(ngModel)]="employeeDetails.departmentID">
+                                            <mat-option *ngFor="let department of viewDepartment" [value]="department.departmentID">{{department.departmentName}} </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-select matInput placeholder="Employee Status" type="text" name="employeeStatus" [(ngModel)]="employeeDetails.employeeStatus">
+                                            <mat-option value="Employed">Employed </mat-option>
+                                            <mat-option value="Resigned">Resigned</mat-option>
+                                            <mat-option value="Terminated">Terminated </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-select matInput placeholder="Leave Policy" name="leavePolicyID" [(ngModel)]="employeeDetails.leavePolicyID" required>
+                                            <mat-option *ngFor="let leavepolicy of viewLeavePolicy" [value]="leavepolicy.leavePolicyID">{{leavepolicy.description}} </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Working Day Time" type="text" name="workingDayType" [(ngModel)]="employeeDetails.workingDayType" />
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Leave ApprovedBy" type="text" name="leaveApprovedBy" [(ngModel)]="employeeDetails.leaveApprovedBy" />
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Join Date" type="date" name="joinedDate" [(ngModel)]="employeeDetails.joinedDate" required />
+                                        <p>{{employeeDetails.joinedDate | date: 'dd-MM-yyyy'}}</p>
+                                    </mat-form-field>
+                                </div>
+                            <div class="col-md-3">
+                                <!--<div>
+                                    <img src="{{employeeDetails.filePath}}" name="FilePath" id="FilePath" style="width: 70px; height: 70px;" />
+                                </div>-->
+                                <div class="text-center">
+                                    <img [src]="FilePath" *ngIf="FilePath" style="width: 200px; height: 150px;" />
+                                    <input class="form-control" type="file" accept="image/*" (change)="handleFileInput($event.target.files)">
+                                </div>
+                            </div>
+                                <div class="col-md-1">
+                                    <button type="button" (click)="onUpload()"
+                                            class="btn btn-success">
+                                        Upload
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button type="submit" class="btn">Update</button>
+                                <button type="submit" class="btn">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

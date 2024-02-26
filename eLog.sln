@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32804.467
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eLog.Web", "eLog.Web\eLog.Web.csproj", "{9EB595D7-84BD-4BA0-BD11-3F7E470893B0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eLog.Domain", "eLog.Domain\eLog.Domain.csproj", "{486AC695-60DA-4B53-8D39-E271465DEFB8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eLog.Repository", "eLog.Repository\eLog.Repository.csproj", "{9074DAC2-64CE-421E-884D-E3CF9528C1E9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eLog.Service", "eLog.Service\eLog.Service.csproj", "{7887E24E-DA2F-467D-8ADE-64BFC039F639}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eLog.IOC", "eLog.IOC\eLog.IOC.csproj", "{5E8203A9-2585-4ED6-B0C2-AF0C81B96C51}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DatabaseChanges", "DatabaseChanges", "{A7D141FD-3A07-4877-87E8-ABCDB039064E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9EB595D7-84BD-4BA0-BD11-3F7E470893B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EB595D7-84BD-4BA0-BD11-3F7E470893B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EB595D7-84BD-4BA0-BD11-3F7E470893B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EB595D7-84BD-4BA0-BD11-3F7E470893B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{486AC695-60DA-4B53-8D39-E271465DEFB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{486AC695-60DA-4B53-8D39-E271465DEFB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{486AC695-60DA-4B53-8D39-E271465DEFB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{486AC695-60DA-4B53-8D39-E271465DEFB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9074DAC2-64CE-421E-884D-E3CF9528C1E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9074DAC2-64CE-421E-884D-E3CF9528C1E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9074DAC2-64CE-421E-884D-E3CF9528C1E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9074DAC2-64CE-421E-884D-E3CF9528C1E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7887E24E-DA2F-467D-8ADE-64BFC039F639}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7887E24E-DA2F-467D-8ADE-64BFC039F639}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7887E24E-DA2F-467D-8ADE-64BFC039F639}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7887E24E-DA2F-467D-8ADE-64BFC039F639}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E8203A9-2585-4ED6-B0C2-AF0C81B96C51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E8203A9-2585-4ED6-B0C2-AF0C81B96C51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E8203A9-2585-4ED6-B0C2-AF0C81B96C51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E8203A9-2585-4ED6-B0C2-AF0C81B96C51}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F350DDA5-2224-4616-BFB6-D6F0802AC22E}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,51 @@
+<nav class="navbar" style="background-color: #e3f2fd; height:80px;">
+    <ul class="nav">
+        <li class="nav-item active">
+            <a class="nav-link nav-link active" href="#/leavesetting">TIME OFF TYPES</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/policysetting">TIME OFF POLICY<span class="sr-only">(current)</span></a>
+        </li>
+    </ul>
+</nav>
+
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Time Off Policy</h4>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                        </div>
+                        <div class="col-md-3">
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right" routerLink="/addpolicy"><i class="fa fa-plus"></i> Add New</button>
+                        </div>
+                    </div>
+                    <div class="card-body table-responsive">
+                        <table class="table table-hover" *ngIf="leavepolicy && leavepolicy.length>0">
+                            <thead class="text-warning">
+                                <tr>
+                                    <th>Time Off Policy</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let LeavePolicy of leavepolicy| paginate: { itemsPerPage: 5, currentPage: p }">
+                                    <td>{{LeavePolicy.description}}</td>
+                                    <td><a class="edit" title="Edit" data-toggle="tooltip" href="#/editpolicy/{{LeavePolicy.leavePolicyID}}"><i class="material-icons">&#xE254;</i></a></td>
+                                    <td><a class="delete" title="Delete" data-toggle="tooltip" (click)="deletePolicy(LeavePolicy)"><i class="material-icons" style="color:red">&#xE872;</i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p *ngIf="!leavepolicy || leavepolicy.length <= 0">No data found</p>
+                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

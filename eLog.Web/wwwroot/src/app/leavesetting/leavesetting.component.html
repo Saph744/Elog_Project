@@ -1,0 +1,110 @@
+<nav class="navbar" style="background-color: #e3f2fd; height:80px;">
+    <ul class="nav">
+        <li class="nav-item active">
+            <a class="nav-link" href="#/leavesetting">TIME OFF TYPES <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/policysetting">TIME OFF POLICY</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Time Off Types</h4>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8"></div>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-info add-new pull-right" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i> Add New</button>
+                        </div>
+                    </div>
+                    <div class="card-body table-responsive">
+                        <table class="table table-hover" *ngIf="leavetype && leavetype.length>0">
+                            <thead class="text-warning">
+                                <tr>
+                                    <th>Time Off Type</th>
+                                    <th>Request Required</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let LeaveType of leavetype | paginate: { itemsPerPage: 5, currentPage: p }">
+                                    <td>{{LeaveType.description}}</td>
+                                    <td>Yes</td>
+                                    <td><a class="edit" title="Edit" data-toggle="modal" data-target="#editTimeOffType" (click)="editLeave(LeaveType)"><i class="material-icons">&#xE254;</i></a></td>
+                                    <td><a class="delete" title="Delete" data-toggle="tooltip" (click)="deleteLeave(LeaveType)"><i class="material-icons" style="color:red">&#xE872;</i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p *ngIf="!leavetype || leavetype.length <= 0">No data found</p>
+                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--///ADD NEW POPUP MODAL///-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">ADD TIME OFF TYPE</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form #LeaveType="ngForm" (ngSubmit)="addLeaveType(LeaveType)">
+                    <div class="form-group">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Enter Time Off Type" type="text"  #Description [(ngModel)]="leavetypetoInsert.description">
+                        </mat-form-field>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--///EDIT TIME OFF TYPE MODAL///-->
+<div class="modal fade" id="editTimeOffType" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">EDIT TIME OFF TYPE</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form updateLeaveType="ngForm" (ngSubmit)="updateLeaveType()" >
+                    <div class="form-group">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Time Off Type" type="text" #Description [(ngModel)]="leavetypetoUpdate.description">
+                        </mat-form-field>
+                        <div class="col-md-3">
+                            <mat-label>Disable   <mat-slide-toggle></mat-slide-toggle> </mat-label>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" ><i class="fa fa-undo" >Update</i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,33 @@
+.main-content {
+    margin: 30px;
+    padding: unset;
+}
+tbody {
+    display: block;
+  
+    overflow: auto;
+    //height: 300px;
+    width: 100%;
+}
+
+thead tr {
+    display: table;
+    width: 100%;
+    table-layout: unset;
+    font-size: xx-small;
+}
+
+thead, tbody tr {
+   
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    font-size: small;
+}
+
+thead {
+    border-collapse: collapse;
+    width: calc( 100% - 1em );
+    font-size: xx-small;
+}
+

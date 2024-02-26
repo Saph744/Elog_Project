@@ -1,0 +1,87 @@
+<nav class="navbar" style="background-color: #e3f2fd; height:80px;">
+    <ul class="nav">
+        <li class="nav-item active">
+            <a class="nav-link" href="#/leave">DashBoard</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/leavereq">Request<span class="sr-only">(current)</span></a>
+        </li>
+    </ul>
+</nav>
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Leave Request</h4>
+                        <p class="card-category">Fill all the necessary details</p>
+                    </div>
+                    <div class="card-body">
+                        <form #LeaveRequest="ngForm" (ngSubmit)="InsertLeaveReq()">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Employee Name</mat-label>
+                                        <select matNativeControl required name="employeeID" [(ngModel)]="leaveRequest.contactID">
+                                            <option *ngFor="let Employees of employee" [value]="Employees.contactID">{{Employees.firstName }} {{Employees.middleName}} {{Employees.lastName}}</option>
+                                        </select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Leave Type</mat-label>
+                                        <select matNativeControl required name="leaveTypeID" [(ngModel)]="leaveRequest.leaveTypeID">
+                                            <option *ngFor="let LeaveType of leavetype" [value]="LeaveType.leaveTypeID">{{LeaveType.description}}</option>
+                                        </select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Time Off Available" value="10" type="text" readonly="readonly">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="StartDate" type="date" name="startDate" [(ngModel)]="leaveRequest.startDate">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="End Date" type="date" name="endDate" [(ngModel)]="leaveRequest.endDate">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Days Off" name="daysOff" [(ngModel)]="leaveRequest.daysOff">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Hours Off" name="hourOff" [(ngModel)]="leaveRequest.hourOff">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Leave Reason" name="leaveReason" [(ngModel)]="leaveRequest.leaveReason" required>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right">Submit</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

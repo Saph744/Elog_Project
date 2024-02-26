@@ -1,0 +1,30 @@
+﻿export class employee {
+    company: string;
+    username: string;
+    emailAddress: string;
+    firstName: string;
+    middleName: string;
+    lastName: string;
+    address1: string;
+    address2: string;
+    state: number;
+    country: string;
+    mobileNumber: string;
+    gender: string;
+
+    employeeCode: string;
+    department: string;
+    jobTitle: string;
+    location: string;
+    employeeTypes: String;
+    employeeStatus: number;
+    employeeManager: string;
+    workingDayType: string;
+    leavePolicy: string;
+    leaveApprovedBy: string;
+    holidayType: string;
+    dateOfBirth: Date;
+    hireDate: Date;
+    terminationDate: Date;
+    contactID: number;
+};

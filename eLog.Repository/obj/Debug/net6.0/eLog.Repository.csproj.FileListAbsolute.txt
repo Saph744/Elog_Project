@@ -1,0 +1,15 @@
+E:\Elogmanagement\eLog\eLog.Repository\bin\Debug\net6.0\eLog.Repository.deps.json
+E:\Elogmanagement\eLog\eLog.Repository\bin\Debug\net6.0\eLog.Repository.dll
+E:\Elogmanagement\eLog\eLog.Repository\bin\Debug\net6.0\eLog.Repository.pdb
+E:\Elogmanagement\eLog\eLog.Repository\bin\Debug\net6.0\eLog.Domain.dll
+E:\Elogmanagement\eLog\eLog.Repository\bin\Debug\net6.0\eLog.Domain.pdb
+E:\Elogmanagement\eLog\eLog.Repository\obj\Debug\net6.0\eLog.Repository.csproj.AssemblyReference.cache
+E:\Elogmanagement\eLog\eLog.Repository\obj\Debug\net6.0\eLog.Repository.GeneratedMSBuildEditorConfig.editorconfig
+E:\Elogmanagement\eLog\eLog.Repository\obj\Debug\net6.0\eLog.Repository.AssemblyInfoInputs.cache
+E:\Elogmanagement\eLog\eLog.Repository\obj\Debug\net6.0\eLog.Repository.AssemblyInfo.cs
+E:\Elogmanagement\eLog\eLog.Repository\obj\Debug\net6.0\eLog.Repository.csproj.CoreCompileInputs.cache
+E:\Elogmanagement\eLog\eLog.Repository\obj\Debug\net6.0\eLog.Repository.csproj.CopyComplete
+E:\Elogmanagement\eLog\eLog.Repository\obj\Debug\net6.0\eLog.Repository.dll
+E:\Elogmanagement\eLog\eLog.Repository\obj\Debug\net6.0\refint\eLog.Repository.dll
+E:\Elogmanagement\eLog\eLog.Repository\obj\Debug\net6.0\eLog.Repository.pdb
+E:\Elogmanagement\eLog\eLog.Repository\obj\Debug\net6.0\ref\eLog.Repository.dll

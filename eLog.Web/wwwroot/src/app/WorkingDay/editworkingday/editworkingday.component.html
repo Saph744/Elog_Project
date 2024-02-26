@@ -1,0 +1,113 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Update Workingday</h4>
+                        <p class="card-category">Complete your Workingday profile</p>
+                    </div>
+                    <div class="card-body">
+                        <form #form="ngForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput type="text" placeholder="workingDay#" name="workingDayID"
+                                            id="workingDayID" [(ngModel)]="workingdaydetails.workingDayID" disabled>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput type="text" placeholder="HourPerDay" name="hourPerDay"
+                                            id="hourPerDay" [(ngModel)]="workingdaydetails.hourPerDay">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="description" type="text" name="description"
+                                            [(ngModel)]="workingdaydetails.description">
+                                    </mat-form-field>
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="isActive" type="text" name="isActive"
+                                            [(ngModel)]="workingdaydetails.isActive">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="company#" type="text" name="companyID"
+                                            [(ngModel)]="workingdaydetails.companyID">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="sun" type="text" name="sun"
+                                            [(ngModel)]="workingdaydetails.sun">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="mon" type="text" name="mon"
+                                            [(ngModel)]="workingdaydetails.mon">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="tue" type="text" name="tue"
+                                            [(ngModel)]="workingdaydetails.tue">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="wed" type="text" name="wed"
+                                            [(ngModel)]="workingdaydetails.wed">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="thu" type="text" name="thu"
+                                            [(ngModel)]="workingdaydetails.thu">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="fri" type="text" name="fri"
+                                            [(ngModel)]="workingdaydetails.fri">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="sat" type="text" name="sat"
+                                            [(ngModel)]="workingdaydetails.sat">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="sun" type="text" name="sun"
+                                            [(ngModel)]="workingdaydetails.sun">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="createdBy" type="text" name="createdBy"
+                                            [(ngModel)]="workingdaydetails.createdBy">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right"
+                                (click)="UpdateWorkingday()">Update</button>
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right"
+                                (click)="DeleteWorkingday(workingdaydetails.workingDayID)">Delete</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

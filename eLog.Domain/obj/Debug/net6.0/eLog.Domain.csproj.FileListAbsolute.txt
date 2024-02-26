@@ -1,0 +1,12 @@
+E:\Elogmanagement\eLog\eLog.Domain\bin\Debug\net6.0\eLog.Domain.deps.json
+E:\Elogmanagement\eLog\eLog.Domain\bin\Debug\net6.0\eLog.Domain.dll
+E:\Elogmanagement\eLog\eLog.Domain\bin\Debug\net6.0\eLog.Domain.pdb
+E:\Elogmanagement\eLog\eLog.Domain\obj\Debug\net6.0\eLog.Domain.csproj.AssemblyReference.cache
+E:\Elogmanagement\eLog\eLog.Domain\obj\Debug\net6.0\eLog.Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\Elogmanagement\eLog\eLog.Domain\obj\Debug\net6.0\eLog.Domain.AssemblyInfoInputs.cache
+E:\Elogmanagement\eLog\eLog.Domain\obj\Debug\net6.0\eLog.Domain.AssemblyInfo.cs
+E:\Elogmanagement\eLog\eLog.Domain\obj\Debug\net6.0\eLog.Domain.csproj.CoreCompileInputs.cache
+E:\Elogmanagement\eLog\eLog.Domain\obj\Debug\net6.0\eLog.Domain.dll
+E:\Elogmanagement\eLog\eLog.Domain\obj\Debug\net6.0\refint\eLog.Domain.dll
+E:\Elogmanagement\eLog\eLog.Domain\obj\Debug\net6.0\eLog.Domain.pdb
+E:\Elogmanagement\eLog\eLog.Domain\obj\Debug\net6.0\ref\eLog.Domain.dll

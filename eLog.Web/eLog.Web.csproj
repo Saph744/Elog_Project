@@ -1,0 +1,167 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>Disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <OutputType>WinExe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\src\app\codetable\**" />
+    <Compile Remove="wwwroot\src\app\Models\Codetable\**" />
+    <Content Remove="wwwroot\src\app\codetable\**" />
+    <Content Remove="wwwroot\src\app\Models\Codetable\**" />
+    <EmbeddedResource Remove="wwwroot\src\app\codetable\**" />
+    <EmbeddedResource Remove="wwwroot\src\app\Models\Codetable\**" />
+    <None Remove="wwwroot\src\app\codetable\**" />
+    <None Remove="wwwroot\src\app\Models\Codetable\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="obj\Debug\net6.0\.NETCoreApp,Version=v6.0.AssemblyAttributes.cs" />
+    <Compile Include="obj\Debug\net6.0\eLog.Web.AssemblyInfo.cs" />
+    <Compile Include="obj\Debug\net6.0\eLog.Web.GlobalUsings.g.cs" />
+    <Folder Include="wwwroot\src\app\Services\WorkingDays\" />
+    <Folder Include="wwwroot\src\app\WorkingDay\" />
+    <Folder Include="wwwroot\Uploads\ProfilePic\" />
+    <Folder Include="wwwroot\Uploads\Company\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\.vs\Controllers\v17\" />
+    <Content Include="bin\Debug\net6.0\appsettings.json" />
+    <Content Include="bin\Debug\net6.0\eLog.Web.deps.json" />
+    <Content Include="bin\Debug\net6.0\eLog.Web.runtimeconfig.json" />
+    <Content Include="bin\Debug\net6.0\eLog.Web.staticwebassets.runtime.json" />
+    <Content Include="bin\Debug\net6.0\package-lock.json" />
+    <Content Include="bin\Debug\net6.0\package.json" />
+    <Content Include="obj\Debug\net6.0\eLog.Web.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\net6.0\staticwebassets.build.json" />
+    <Content Include="obj\Debug\net6.0\staticwebassets.development.json" />
+    <Content Include="obj\eLog.Web.csproj.nuget.dgspec.json" />
+    <Content Include="obj\project.assets.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="bin\Debug\net6.0\cs\" />
+    <Folder Include="bin\Debug\net6.0\de\" />
+    <Folder Include="bin\Debug\net6.0\es\" />
+    <Folder Include="bin\Debug\net6.0\fr\" />
+    <Folder Include="bin\Debug\net6.0\it\" />
+    <Folder Include="bin\Debug\net6.0\ja\" />
+    <Folder Include="bin\Debug\net6.0\ko\" />
+    <Folder Include="bin\Debug\net6.0\pl\" />
+    <Folder Include="bin\Debug\net6.0\pt-BR\" />
+    <Folder Include="bin\Debug\net6.0\runtimes\unix\lib\net6.0\" />
+    <Folder Include="bin\Debug\net6.0\runtimes\win\lib\net6.0\" />
+    <Folder Include="bin\Debug\net6.0\ru\" />
+    <Folder Include="bin\Debug\net6.0\tr\" />
+    <Folder Include="bin\Debug\net6.0\zh-Hans\" />
+    <Folder Include="bin\Debug\net6.0\zh-Hant\" />
+    <Folder Include="obj\Debug\net6.0\staticwebassets\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\net6.0\Azure.Core.dll" />
+    <None Include="bin\Debug\net6.0\Azure.Identity.dll" />
+    <None Include="bin\Debug\net6.0\Dapper.dll" />
+    <None Include="bin\Debug\net6.0\eLog.Domain.dll" />
+    <None Include="bin\Debug\net6.0\eLog.Domain.pdb" />
+    <None Include="bin\Debug\net6.0\eLog.Repository.dll" />
+    <None Include="bin\Debug\net6.0\eLog.Repository.pdb" />
+    <None Include="bin\Debug\net6.0\eLog.Service.dll" />
+    <None Include="bin\Debug\net6.0\eLog.Service.pdb" />
+    <None Include="bin\Debug\net6.0\eLog.Web.dll" />
+    <None Include="bin\Debug\net6.0\eLog.Web.exe" />
+    <None Include="bin\Debug\net6.0\eLog.Web.pdb" />
+    <None Include="bin\Debug\net6.0\Microsoft.AspNetCore.SpaServices.Extensions.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.Data.SqlClient.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.Identity.Client.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.Identity.Client.Extensions.Msal.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.OpenApi.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.SqlServer.Server.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win-x64\native\sni.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win-x86\native\sni.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll" />
+    <None Include="bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll" />
+    <None Include="bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll" />
+    <None Include="bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll" />
+    <None Include="bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll" />
+    <None Include="bin\Debug\net6.0\System.Data.SqlClient.dll" />
+    <None Include="bin\Debug\net6.0\System.Drawing.Common.dll" />
+    <None Include="bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll" />
+    <None Include="bin\Debug\net6.0\System.Memory.Data.dll" />
+    <None Include="bin\Debug\net6.0\System.Runtime.Caching.dll" />
+    <None Include="bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll" />
+    <None Include="bin\Debug\net6.0\System.Security.Permissions.dll" />
+    <None Include="bin\Debug\net6.0\System.Windows.Extensions.dll" />
+    <None Include="obj\Debug\net6.0\apphost.exe" />
+    <None Include="obj\Debug\net6.0\eLog.Web.AssemblyInfoInputs.cache" />
+    <None Include="obj\Debug\net6.0\eLog.Web.assets.cache" />
+    <None Include="obj\Debug\net6.0\eLog.Web.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\net6.0\eLog.Web.csproj.BuildWithSkipAnalyzers" />
+    <None Include="obj\Debug\net6.0\eLog.Web.csproj.CopyComplete" />
+    <None Include="obj\Debug\net6.0\eLog.Web.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\net6.0\eLog.Web.dll" />
+    <None Include="obj\Debug\net6.0\eLog.Web.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Include="obj\Debug\net6.0\eLog.Web.genruntimeconfig.cache" />
+    <None Include="obj\Debug\net6.0\eLog.Web.pdb" />
+    <None Include="obj\Debug\net6.0\refint\eLog.Web.dll" />
+    <None Include="obj\Debug\net6.0\ref\eLog.Web.dll" />
+    <None Include="obj\Debug\net6.0\Tsce3dd5452.out" />
+    <None Include="obj\eLog.Web.csproj.nuget.g.props" />
+    <None Include="obj\eLog.Web.csproj.nuget.g.targets" />
+    <None Include="obj\project.nuget.cache" />
+    <None Include="obj\staticwebassets.pack.sentinel" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="6.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.8" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\eLog.Domain\eLog.Domain.csproj" />
+    <ProjectReference Include="..\eLog.IOC\eLog.IOC.csproj" />
+    <ProjectReference Include="..\eLog.Repository\eLog.Repository.csproj" />
+    <ProjectReference Include="..\eLog.Service\eLog.Service.csproj" />
+  </ItemGroup>
+
+</Project>

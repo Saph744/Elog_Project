@@ -1,0 +1,171 @@
+<nav class="navbar" style="background-color: #e3f2fd; height:80px;">
+
+    <ul class="nav">
+        <li class="nav-item active">
+            <a class="nav-link" href="#">DashBoard <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Holiday</a>
+        </li>
+    </ul>
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+</nav>
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+
+                <h5 style="color: #009688 !important;font:20px;">Holiday Information</h5>
+                <form #form="ngForm" (ngSubmit)="InsertHoliday()">
+                    <div class="card">
+                        <h5 class="card-header" style="color: #009688 !important">Holiday Year</h5>
+
+                        <div class="input-group mb-3">
+                            <mat-form-field style="margin-left: 20px;">
+                                <mat-select id="holidayYear" placeholder="select year" name="holidayYear" [(ngModel)]="holidayDetail.holidayYear">
+                                    <mat-option *ngFor="let year of years" [value]="year">{{year}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!--For Holiday List-->
+            <div class="col-lg-12 col-sm-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Holiday List</h4>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+
+                        </div>
+                        <div class="col-md-2">
+                            <div class="input-group no-border">
+                                <input type="text" value="" name="holidayName" [(ngModel)]="holidayName" class="form-control" placeholder="Search..." (ngModelChange)="Search()">
+                                <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                    <i class="material-icons">search</i>
+                                    <div class="ripple-container"></div>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Vertically centered modal -->
+                        <div class="d-flex" style="margin-left:600px;">
+                            <button type="submit" class="btn btn-danger btn-round" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <i class="fa fa-plus"></i>
+                                ADD HOLIDAY
+                            </button>
+                        </div>
+
+
+                        <!--Modal for Add Holiday Detail-->
+                        <form #form="ngForm" (ngSubmit)="InsertHoliday()">
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header" style="background-color:#009688 !important;color:white;">
+                                            <h5 class="modal-title" id="exampleModalLabel">Holiday Detail</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+
+                                        <div class="modal-body">
+
+                                            <div class="mb-3">
+                                                <label for="txtName" class="form-label">Holiday Date</label>
+                                                <input type="date" name="holidayDate" [(ngModel)]="holidayDetail.holidayDate" class="form-control" id="txtName">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="txtName" class="form-label">Holiday Name</label>
+                                                <input type="text" name="holidayName" [(ngModel)]="holidayDetail.holidayName" class="form-control" id="txtName">
+                                            </div>
+
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeClick()">Close</button>
+                                            <button type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" [disabled]="!holidayDetail.holidayDate || !holidayDetail.holidayName">ADD</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+
+                        <!--For Edit HolidayDetail-->
+
+                        <div class="modal fade" id="editType2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="background-color:#009688 !important;color:white;">
+                                        <h5 class="modal-title" id="exampleModalLabel">Edit Holiday Detail</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <form updateholiday="ngForm" (ngSubmit)="UpdateHoliday()">
+                                            <div class="mb-3">
+                                                <label for="txtName" class="form-label">Holiday Date</label>
+                                                <input type="date" name="holidayDate" [(ngModel)]="holDetailtoUpdate.holidayDate" class="form-control" id="txtName">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="txtName" class="form-label">Holiday Name</label>
+                                                <input type="text" name="holidayName" [(ngModel)]="holDetailtoUpdate.holidayName" class="form-control" id="txtName">
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="txtName" class="form-label">Holiday Year</label>
+                                                <input type="text" name="holidayYear" [(ngModel)]="holDetailtoUpdate.holidayYear" class="form-control" id="txtName">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Update</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <div role="separator" class="dropdown-divider"></div>
+                    <table class="table">
+                        <thead style="color:darkorange">
+                            <tr>
+                                <th (click)="sort('holidayYear')">Year&nbsp;<i class="fa fa-sort" style="margin-left:30px;"></i></th>
+                                <th (click)="sort('holidayName')">Holiday Name&nbsp;<i class="fa fa-sort" style="margin-left:30px;"></i></th>
+                                <th (click)="sort('holidayDate')">Date&nbsp;<i class="fa fa-sort" style="margin-left:30px;"></i></th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let holDetail of holidaydetail | orderBy: key: reverse | paginate: { itemsPerPage: 3, currentPage: p }">
+                                <td>{{holDetail.holidayYear}}</td>
+                                <td>{{holDetail.holidayName}}</td>
+                                <td>{{holDetail.holidayDate|date: 'yyyy-MM-dd'}}</td>
+                                <td>
+                                    <a class="edit" id="editType2" data-bs-toggle="modal" data-bs-target="#editType2" (click)="editClick(holDetail)" data-backdrop="static" data-keyboard="false"><i class="material-icons">edit</i></a>
+                                </td>
+                                <td>
+                                    <a class="delete" (click)="DeleteHoliday(holDetail.holidayDetailID)"><i class="material-icons" style="color:red;">delete</i></a>
+                                </td>
+
+                            </tr>
+                        </tbody>
+
+                    </table>
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </div>
+                </div>
+            </div>
+        </div>
+</div>
+
